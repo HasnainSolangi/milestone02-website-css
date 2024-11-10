@@ -1,42 +1,113 @@
+/* app/globals.css */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  --text-color: #333;
+  --background-color: #fff;
+  --page-margin: 1rem;
 }
 
 * {
-  box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-a {
-  color: inherit;
+html, body {
+  height: 100%;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.site-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Navbar Styling */
+.navbar {
+  background-color: var(--primary-color);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between; /* Ensures space between items */
+  align-items: center;
+  width: 100%;
+}
+
+/* Brand (Hasnain Ahmed) */
+.nav-brand {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  flex: 1; /* Makes the brand stick to the left */
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin-left: auto; /* Aligns the links to the right */
+}
+
+/* Navigation Links - Individual Items */
+.nav-links a {
+  color: white;
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .navbar {
+    justify-content: space-between; /* Keeps space between brand and nav links */
+    flex-wrap: wrap; /* Allows wrapping of content if necessary */
   }
+
+  .nav-brand {
+    flex: 0 1 auto; /* Keep brand size auto */
+    margin-bottom: 1rem; /* Adds some space below the brand */
+  }
+
+  .nav-links {
+    margin-left: 0; /* Remove left margin */
+    gap: 1rem;
+    flex-direction: row; /* Keep nav links in a row on mobile */
+    justify-content: flex-end; /* Align nav links to the right */
+  }
+
+  /* Optionally reduce font size or padding for mobile */
+  .nav-links a {
+    font-size: 1rem;
+  }
+}
+
+.main-container {
+  flex: 1;
+  margin-left: var(--page-margin);
+  margin-right: var(--page-margin);
+  padding-bottom: 2rem;
+}
+
+.content {
+  margin-left: var(--page-margin);
+  margin-right: var(--page-margin);
+  padding: 2rem;
+}
+
+.footer {
+  background-color: var(--primary-color);
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  width: 100%;
+  margin-top: auto; /* Ensures footer stays at the bottom */
 }
